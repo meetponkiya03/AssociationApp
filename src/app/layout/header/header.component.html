@@ -8,7 +8,8 @@
                   and dynamic user context pill (Role | FY).
 ========================================================================= -->
 
-<header class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/90 select-none overflow-hidden flex-shrink-0 z-20 shadow-xs">
+<header
+  class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/90 select-none overflow-hidden flex-shrink-0 z-20 shadow-xs">
   <!-- Subtle decorative wave background overlay matching screenshots -->
   <div class="absolute inset-0 pointer-events-none opacity-30">
     <svg class="w-full h-full object-cover" viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none">
@@ -26,27 +27,24 @@
   <nav class="relative z-10 flex items-center justify-between px-6 py-2.5">
     <!-- Left: Brand Logo & Title -->
     <div class="flex items-center gap-3.5">
-      <!-- 
-        NOTE FOR ANGULAR DEVELOPER:
-        Empty image tag reserved for client logo as requested.
-        Replace src with asset path, e.g., src="assets/logos/sutraplus-logo.png"
-      -->
-      <div class="flex-shrink-0 flex items-center justify-center">
-        <img 
-          src="" 
-          alt="SutraPlus Logo" 
-          class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm"
-        />
+      <div
+        class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 via-red-500 to-rose-600 p-0.5 shadow-2xs flex-shrink-0 flex items-center justify-center">
+        <div class="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
+          <svg class="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7 2h10v2H7zm0 18h10v2H7zm2-14h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm2 2v6h2V10h-2z" />
+          </svg>
+        </div>
       </div>
+      <img src="" alt="" class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm" />
 
       <!-- App Branding Titles -->
       <div class="flex flex-col">
-        <a routerLink="/dashboard" class="text-xl md:text-2xl font-bold tracking-tight text-[#0a2540] leading-tight font-sans hover:opacity-95 transition-opacity">
+        <a routerLink="/dashboard"
+          class="text-xl md:text-2xl font-bold tracking-tight text-[#0a2540] leading-tight font-sans hover:opacity-95 transition-opacity">
           SutraPlus
         </a>
-        <p class="text-xs font-medium text-slate-600 tracking-wide">
-          Inventory & Accounting for Liquor Outlets
-        </p>
+        <p class="text-xs font-medium text-slate-600 tracking-wide font-sans"></p>
       </div>
     </div>
 
@@ -54,10 +52,12 @@
       Right: Role & Financial Year Context Display (as shown in Step 4 Dashboard)
       Angular Binding: *ngIf="isLoggedIn" or inputs: [role]="currentRole" [fy]="currentFY"
     -->
-    <div *ngIf="currentRole" class="flex items-center gap-2.5 text-xs md:text-sm font-semibold text-slate-700 bg-white/80 backdrop-blur-xs px-4 py-1.5 rounded-full border border-blue-200/90 shadow-xs">
+    <div *ngIf="currentRole"
+      class="flex items-center gap-2.5 text-xs md:text-sm font-semibold text-slate-700 bg-white/80 backdrop-blur-xs px-4 py-1.5 rounded-full border border-blue-200/90 shadow-xs">
       <span class="text-[#0c2444] font-bold">{{ currentRole || 'Trader' }}</span>
       <span class="text-slate-400">|</span>
-      <span class="text-slate-600">FY : <strong class="text-slate-800 font-bold">{{ currentFY || '2025 - 26' }}</strong></span>
+      <span class="text-slate-600">FY : <strong class="text-slate-800 font-bold">{{ currentFY || '2025 - 26'
+          }}</strong></span>
     </div>
   </nav>
 </header>

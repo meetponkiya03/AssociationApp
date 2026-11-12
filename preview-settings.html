@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SutraPlus - Settings (Bag Rate Configuration)</title>
+  <title>SutraPlus - Bag Rate Settings</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Inter & JetBrains Mono -->
@@ -35,6 +35,11 @@
       background: #cbd5e1;
       border-radius: 4px;
     }
+
+    img:not([src]),
+    img[src=""] {
+      display: none !important;
+    }
   </style>
 </head>
 
@@ -57,11 +62,19 @@
     <div class="relative z-10 flex items-center justify-between px-6 py-2.5">
       <!-- Left: Logo & Branding -->
       <div class="flex items-center gap-3.5">
-        <img src="" alt="SutraPlus Logo" class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm" />
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 via-red-500 to-rose-600 p-0.5 shadow-2xs flex-shrink-0 flex items-center justify-center">
+          <div class="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M7 2h10v2H7zm0 18h10v2H7zm2-14h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm2 2v6h2V10h-2z" />
+            </svg>
+          </div>
+        </div>
+        <img src="" alt="" class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm" />
         <div class="flex flex-col">
           <h1 class="text-xl md:text-2xl font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
-          <p class="text-xs font-medium text-slate-600 tracking-wide font-sans">Inventory & Accounting for Liquor
-            Outlets</p>
+          <p class="text-xs font-medium text-slate-600 tracking-wide font-sans"></p>
         </div>
       </div>
 
@@ -80,7 +93,7 @@
   ========================================================================== -->
   <div class="flex flex-1 overflow-hidden w-full h-[calc(100vh-61px)]">
 
-    <!-- Standardized 7-item Sidebar Navigation -->
+    <!-- Standardized Sidebar Navigation -->
     <aside
       class="w-64 min-w-[256px] bg-[#0c2444] text-white flex flex-col justify-start select-none py-5 px-3 shadow-xl flex-shrink-0 z-10 overflow-y-auto">
       <nav class="space-y-1.5 font-sans" id="sidebarNav">
@@ -129,7 +142,25 @@
           <span class="font-medium tracking-wide">Records</span>
         </a>
 
-        <!-- 5. Reports -->
+        <!-- 5. Cross Check -->
+        <a href="preview-cross-check.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span class="font-medium tracking-wide">Cross Check</span>
+        </a>
+
+        <!-- 6. Receipt Entry -->
+        <a href="preview-receipt-entry.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center font-bold text-white text-sm">₹</div>
+          <span class="font-medium tracking-wide">Receipt Entry</span>
+        </a>
+
+        <!-- 7. Reports -->
         <a href="#reports"
           class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
           <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -141,7 +172,7 @@
           <span class="font-medium tracking-wide">Reports</span>
         </a>
 
-        <!-- 6. Settings (Active on this screen) -->
+        <!-- 8. Settings (Active on this screen) -->
         <a href="preview-settings.html"
           class="sidebar-item active group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1976d2] text-white shadow-sm transition-all duration-150 cursor-pointer">
           <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -154,8 +185,8 @@
           <span class="font-medium tracking-wide">Settings</span>
         </a>
 
-        <!-- 7. Logout -->
-        <a href="preview-login.html"
+        <!-- 9. Logout -->
+        <a href="index.html"
           class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#f87171] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
           <svg class="w-5 h-5 flex-shrink-0 text-[#f87171] group-hover:text-white" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -181,85 +212,14 @@
                 stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="3"></circle>
                 <path
-                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
                 </path>
               </svg>
             </div>
             <div>
-              <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0c2340]">Bag Rate Settings</h2>
-              <p class="text-xs text-slate-500 font-medium mt-0.5">Configure role-specific association fees per bag for
-                Traders and Commission Agents</p>
-            </div>
-          </div>
-
-          <!-- Active Policy Pill -->
-          <div
-            class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-2xs self-start sm:self-auto">
-            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-            <span>Role-Based Rates Active</span>
-          </div>
-        </div>
-
-        <!-- 3 KPI Status Summary Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <!-- Card 1: Trader Rate -->
-          <div class="bg-white rounded-xl border border-blue-200/90 p-4 shadow-xs relative overflow-hidden">
-            <div class="absolute -right-3 -top-3 w-16 h-16 bg-blue-50 rounded-full pointer-events-none opacity-50">
-            </div>
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Trader Bag Rate</span>
-              <span
-                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-[#1976d2]">Trader</span>
-            </div>
-            <div class="flex items-baseline gap-2">
-              <span id="kpiTraderRate" class="text-3xl font-bold text-[#1976d2] font-mono">₹ 1.25</span>
-              <span class="text-xs font-medium text-slate-500">/ bag</span>
-            </div>
-            <div class="mt-2 text-xs font-medium text-slate-500 flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd" />
-              </svg>
-              <span>Applied to wholesale & retail traders</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Commission Agent Rate -->
-          <div class="bg-white rounded-xl border border-indigo-200/90 p-4 shadow-xs relative overflow-hidden">
-            <div class="absolute -right-3 -top-3 w-16 h-16 bg-indigo-50 rounded-full pointer-events-none opacity-50">
-            </div>
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Commission Agent Rate</span>
-              <span
-                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700">Agent</span>
-            </div>
-            <div class="flex items-baseline gap-2">
-              <span id="kpiAgentRate" class="text-3xl font-bold text-[#4338ca] font-mono">₹ 1.00</span>
-              <span class="text-xs font-medium text-slate-500">/ bag</span>
-            </div>
-            <div class="mt-2 text-xs font-medium text-slate-500 flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd" />
-              </svg>
-              <span>Applied to commission brokers</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Effective Schedule -->
-          <div class="bg-white rounded-xl border border-slate-200/90 p-4 shadow-xs">
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Effective Schedule</span>
-              <span
-                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Active</span>
-            </div>
-            <div class="flex items-baseline gap-2">
-              <span id="kpiEffectiveDate" class="text-2xl font-bold text-[#0c2340] font-mono">11-11-2026</span>
-            </div>
-            <div class="mt-2 text-xs text-slate-500 font-medium flex items-center gap-1">
-              <span>Differential role pricing active</span>
+              <h2 class="text-2xl font-bold tracking-tight text-[#0c2340]">Bag Rate Settings</h2>
+              <p class="text-xs text-slate-500 font-medium mt-0.5">Configure association fee per bag for Traders and
+                Commission Agents</p>
             </div>
           </div>
         </div>
@@ -277,156 +237,86 @@
             </div>
             <div>
               <p class="text-sm font-bold text-emerald-900" id="toastMessage">Bag rates updated successfully!</p>
-              <p class="text-xs text-emerald-700">The respective rates will apply directly to Trader and Commission
-                Agent transactions.</p>
+              <p class="text-xs text-emerald-700">The new rate revision has been saved and recorded in the history table
+                below.</p>
             </div>
           </div>
           <button type="button" onclick="document.getElementById('saveToast').classList.add('hidden')"
             class="text-emerald-700 hover:text-emerald-900 text-sm font-bold px-2 py-1">✕</button>
         </div>
 
-        <!-- Main Configuration Card & Form -->
-        <div class="bg-white rounded-xl border border-slate-200/90 shadow-sm p-6 md:p-8 mb-6">
-          <!-- Card Header & Policy Notice -->
-          <div class="border-b border-slate-200 pb-5 mb-6">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-lg font-bold text-[#0c2340]">Set Association Bag Rates</h3>
-              <span
-                class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1976d2] border border-blue-200">Different
-                Role Rates</span>
-            </div>
-            <p class="text-xs text-slate-500 leading-relaxed">
-              Traders and Commission Agents have separate cess rates. When transactions are recorded, the system
-              automatically applies the respective rate according to the selected user or party role.
-            </p>
-
-            <!-- Information Banner -->
-            <div
-              class="mt-3.5 bg-blue-50/70 border border-blue-200/80 rounded-lg p-3 flex items-start gap-2.5 text-xs text-blue-900">
-              <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                  clip-rule="evenodd" />
-              </svg>
-              <span>
-                <strong>Role Rate Rules:</strong> Transactions under <strong>Trader</strong> use the Trader Bag Rate.
-                Transactions under <strong>Commission Agent</strong> use the Commission Agent Bag Rate.
-              </span>
-            </div>
+        <!-- ===================================================================
+             1. RATE CONFIGURATION FORM (EXACTLY 3 FIELDS)
+        ==================================================================== -->
+        <div class="bg-white rounded-xl border border-slate-200/90 shadow-sm p-6 mb-6">
+          <div class="border-b border-slate-200 pb-4 mb-5">
+            <h3 class="text-base font-bold text-[#0c2340]">Set Rate per Bag</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Enter the applicable bag rates and effective starting date</p>
           </div>
 
-          <!-- Configuration Form -->
           <form id="bagRateForm" onsubmit="handleRateFormSubmit(event)">
+            <!-- The 3 Fields Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-            <!-- Side-by-Side Rate Configuration Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-
-              <!-- 1. Trader Rate Card -->
-              <div class="bg-blue-50/50 border border-blue-200/90 rounded-xl p-5 shadow-2xs relative">
-                <div class="flex items-center justify-between mb-3.5">
-                  <div class="flex items-center gap-2.5">
-                    <div
-                      class="w-9 h-9 rounded-lg bg-blue-100 text-[#1976d2] flex items-center justify-center font-bold shadow-2xs">
-                      <svg class="w-5 h-5 text-[#1976d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="text-sm font-bold text-[#0c2340]">Trader Rate</h4>
-                      <p class="text-[11px] text-slate-500">Registered Wholesale & Retail Traders</p>
-                    </div>
+              <!-- FIELD 1: Trader Rate -->
+              <div>
+                <label for="traderRateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Trader Rate (₹) <span class="text-red-500 font-bold">*</span>
+                </label>
+                <div class="relative rounded-lg shadow-2xs">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <span class="text-slate-500 font-bold text-sm">₹</span>
                   </div>
-                  <span
-                    class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-[#1976d2]">Trader</span>
-                </div>
-
-                <div>
-                  <label for="traderRateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Rate per Bag (₹) <span class="text-red-500 font-bold">*</span>
-                  </label>
-                  <div class="relative rounded-lg shadow-2xs">
-                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <span class="text-slate-500 font-bold text-base">₹</span>
-                    </div>
-                    <input type="number" id="traderRateInput" name="traderRate" step="0.01" min="0.01" max="1000.00"
-                      value="1.25" required oninput="updateTraderPreview(this.value)"
-                      class="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-24 py-2.5 text-base font-bold text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2] transition-colors"
-                      placeholder="1.25" />
-                    <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Per Bag</span>
-                    </div>
+                  <input type="number" id="traderRateInput" name="traderRate" step="0.01" min="0.01" max="1000.00"
+                    value="1.25" required
+                    class="w-full bg-white border border-slate-300 rounded-lg pl-8 pr-20 py-2.5 text-sm font-bold text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2] transition-colors"
+                    placeholder="1.25" />
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">/ Bag</span>
                   </div>
-                  <p class="text-[11px] text-slate-500 mt-2">Cess charged for transactions recorded under Trader role
-                  </p>
                 </div>
+                <p class="text-[11px] text-slate-500 mt-1">For Trader transactions</p>
               </div>
 
-              <!-- 2. Commission Agent Rate Card -->
-              <div class="bg-indigo-50/50 border border-indigo-200/90 rounded-xl p-5 shadow-2xs relative">
-                <div class="flex items-center justify-between mb-3.5">
-                  <div class="flex items-center gap-2.5">
-                    <div
-                      class="w-9 h-9 rounded-lg bg-indigo-100 text-[#4338ca] flex items-center justify-center font-bold shadow-2xs">
-                      <svg class="w-5 h-5 text-[#4338ca]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="text-sm font-bold text-[#0c2340]">Commission Agent Rate</h4>
-                      <p class="text-[11px] text-slate-500">Licensed Commission Agents & Brokers</p>
-                    </div>
+              <!-- FIELD 2: Agent Rate -->
+              <div>
+                <label for="agentRateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Agent Rate (₹) <span class="text-red-500 font-bold">*</span>
+                </label>
+                <div class="relative rounded-lg shadow-2xs">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                    <span class="text-slate-500 font-bold text-sm">₹</span>
                   </div>
-                  <span
-                    class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-[#4338ca]">Agent</span>
+                  <input type="number" id="agentRateInput" name="agentRate" step="0.01" min="0.01" max="1000.00"
+                    value="1.00" required
+                    class="w-full bg-white border border-slate-300 rounded-lg pl-8 pr-20 py-2.5 text-sm font-bold text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2] transition-colors"
+                    placeholder="1.00" />
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">/ Bag</span>
+                  </div>
                 </div>
+                <p class="text-[11px] text-slate-500 mt-1">For Commission Agent transactions</p>
+              </div>
 
-                <div>
-                  <label for="agentRateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Rate per Bag (₹) <span class="text-red-500 font-bold">*</span>
-                  </label>
-                  <div class="relative rounded-lg shadow-2xs">
-                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <span class="text-slate-500 font-bold text-base">₹</span>
-                    </div>
-                    <input type="number" id="agentRateInput" name="agentRate" step="0.01" min="0.01" max="1000.00"
-                      value="1.00" required oninput="updateAgentPreview(this.value)"
-                      class="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-24 py-2.5 text-base font-bold text-slate-800 font-mono focus:ring-2 focus:ring-[#4338ca] focus:border-[#4338ca] transition-colors"
-                      placeholder="1.00" />
-                    <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Per Bag</span>
-                    </div>
-                  </div>
-                  <p class="text-[11px] text-slate-500 mt-2">Cess charged for transactions recorded under Agent role</p>
+              <!-- FIELD 3: Effective From Date -->
+              <div>
+                <label for="effectiveDateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                  Effective From Date <span class="text-red-500 font-bold">*</span>
+                </label>
+                <div class="relative">
+                  <input type="date" id="effectiveDateInput" name="effectiveDate" value="2026-11-11" required
+                    class="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2 text-sm text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2]" />
                 </div>
+                <p class="text-[11px] text-slate-500 mt-1">Effective starting date</p>
               </div>
 
             </div>
 
-            <!-- Effective Date Row -->
-            <div class="max-w-md mb-2">
-              <label for="effectiveDateInput" class="block text-sm font-semibold text-slate-800 mb-1.5">
-                Effective From Date <span class="text-red-500 font-bold">*</span>
-              </label>
-              <div class="relative">
-                <input type="date" id="effectiveDateInput" name="effectiveDate" value="11-11-2026" required
-                  oninput="updateDatePreview(this.value)"
-                  class="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2] pr-10" />
-                
-              </div>
-              <p class="text-[11px] text-slate-500 mt-1">Date from which new transactions apply these rates</p>
-            </div>
-
-            <!-- Form Actions -->
-            <div class="flex flex-col sm:flex-row items-center justify-end gap-3 mt-8 pt-5 border-t border-slate-200">
+            <!-- Form Action Buttons -->
+            <div class="flex items-center justify-end gap-3 mt-6 pt-4 border-t border-slate-100">
               <button type="button" onclick="resetFormToDefaults()"
-                class="w-full sm:w-auto bg-[#e2e8f0] hover:bg-slate-300 text-slate-700 font-semibold text-sm px-6 py-2.5 rounded-lg border border-slate-300 flex items-center justify-center gap-2 cursor-pointer transition-colors">
-                <svg class="w-4 h-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                class="bg-[#e2e8f0] hover:bg-slate-300 text-slate-700 font-semibold text-xs px-5 py-2.5 rounded-lg border border-slate-300 flex items-center gap-1.5 cursor-pointer transition-colors">
+                <svg class="w-3.5 h-3.5 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
                   <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
                 </svg>
@@ -434,14 +324,110 @@
               </button>
 
               <button type="submit"
-                class="w-full sm:w-auto bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1b5e20] text-white font-semibold text-sm px-8 py-2.5 rounded-lg flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-colors">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                class="bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1b5e20] text-white font-semibold text-xs px-6 py-2.5 rounded-lg flex items-center gap-1.5 shadow-xs cursor-pointer transition-colors">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
-                <span>Save Bag Rate Settings</span>
+                <span>Save Settings</span>
               </button>
             </div>
           </form>
+        </div>
+
+        <!-- ===================================================================
+             2. RATE REVISION HISTORY TABLE (Directly Below Form)
+        ==================================================================== -->
+        <div class="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden">
+          <!-- Table Header Banner -->
+          <div
+            class="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-50/50">
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-blue-100 text-[#1976d2] flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-[#1976d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-[#0c2340]">Rate Revision History</h3>
+                <p class="text-[11px] text-slate-500">Record of historical and currently active bag rate changes</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- History Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr
+                  class="bg-slate-100/80 text-slate-600 font-semibold border-b border-slate-200 uppercase tracking-wider text-[11px]">
+                  <th class="py-3 px-4 w-16">#</th>
+                  <th class="py-3 px-4">Effective Date</th>
+                  <th class="py-3 px-4">Trader Rate</th>
+                  <th class="py-3 px-4">Agent Rate</th>
+                  <th class="py-3 px-4">Status</th>
+                  <th class="py-3 px-4 text-right">Updated By</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody" class="divide-y divide-slate-100 font-sans">
+
+                <!-- Row 1 (Current Active) -->
+                <tr class="hover:bg-blue-50/40 transition-colors bg-white">
+                  <td class="py-3 px-4 font-mono font-medium text-slate-500">1</td>
+                  <td class="py-3 px-4 font-mono font-semibold text-slate-800">11-11-2026</td>
+                  <td class="py-3 px-4 font-mono font-bold text-[#1976d2]">₹ 1.25 <span
+                      class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-[#4338ca]">₹ 1.00 <span
+                      class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span>Active</span>
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right font-medium text-slate-600">Admin</td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr class="hover:bg-blue-50/40 transition-colors bg-white">
+                  <td class="py-3 px-4 font-mono font-medium text-slate-500">2</td>
+                  <td class="py-3 px-4 font-mono font-semibold text-slate-700">01-04-2025</td>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-700">₹ 1.00 <span
+                      class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-700">₹ 1.00 <span
+                      class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                      Archived
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right font-medium text-slate-600">Admin</td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr class="hover:bg-blue-50/40 transition-colors bg-white">
+                  <td class="py-3 px-4 font-mono font-medium text-slate-500">3</td>
+                  <td class="py-3 px-4 font-mono font-semibold text-slate-700">01-04-2024</td>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-700">₹ 0.75 <span
+                      class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+                  <td class="py-3 px-4 font-mono font-bold text-slate-700">₹ 0.75 <span
+                      class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+                  <td class="py-3 px-4">
+                    <span
+                      class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                      Archived
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-right font-medium text-slate-600">Admin</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </section>
@@ -455,43 +441,74 @@
       return '₹ ' + num.toFixed(2);
     }
 
-    function updateTraderPreview(val) {
-      const formatted = formatCurrency(val);
-      document.getElementById('kpiTraderRate').innerText = formatted;
+    function formatDateDisplay(dateStr) {
+      if (!dateStr) return '11-11-2026';
+      // If in YYYY-MM-DD format
+      const parts = dateStr.split('-');
+      if (parts.length === 3 && parts[0].length === 4) {
+        return parts[2] + '-' + parts[1] + '-' + parts[0];
+      }
+      return dateStr;
     }
 
-    function updateAgentPreview(val) {
-      const formatted = formatCurrency(val);
-      document.getElementById('kpiAgentRate').innerText = formatted;
-    }
-
-    function updateDatePreview(val) {
-      document.getElementById('kpiEffectiveDate').innerText = val || '11-11-2026';
-    }
+    let revisionCounter = 3;
 
     function handleRateFormSubmit(event) {
       event.preventDefault();
       const traderVal = document.getElementById('traderRateInput').value;
       const agentVal = document.getElementById('agentRateInput').value;
+      const dateVal = document.getElementById('effectiveDateInput').value;
+
       const formattedTrader = formatCurrency(traderVal);
       const formattedAgent = formatCurrency(agentVal);
+      const displayDate = formatDateDisplay(dateVal);
 
-      // Show toast
+      // 1. Show toast notification
       const toast = document.getElementById('saveToast');
-      document.getElementById('toastMessage').innerText = 'Bag rates updated: Trader ' + formattedTrader + ' / bag, Commission Agent ' + formattedAgent + ' / bag successfully!';
+      document.getElementById('toastMessage').innerText = 'New bag rates saved! Trader: ' + formattedTrader + ', Agent: ' + formattedAgent + ' effective from ' + displayDate + '.';
       toast.classList.remove('hidden');
 
-      // Scroll to toast smoothly
+      // 2. Archive previous active rows in the table
+      const tbody = document.getElementById('historyTableBody');
+      const rows = tbody.querySelectorAll('tr');
+      rows.forEach(r => {
+        const badge = r.querySelector('td:nth-child(5) span');
+        if (badge && badge.innerText.includes('Active')) {
+          badge.className = "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200";
+          badge.innerHTML = "Archived";
+        }
+      });
+
+      // 3. Prepend new active revision row
+      revisionCounter++;
+      const newRow = document.createElement('tr');
+      newRow.className = "hover:bg-blue-50/40 transition-colors bg-blue-50/20";
+      newRow.innerHTML = `
+        <td class="py-3 px-4 font-mono font-medium text-slate-500">${revisionCounter}</td>
+        <td class="py-3 px-4 font-mono font-semibold text-slate-800">${displayDate}</td>
+        <td class="py-3 px-4 font-mono font-bold text-[#1976d2]">${formattedTrader} <span class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+        <td class="py-3 px-4 font-mono font-bold text-[#4338ca]">${formattedAgent} <span class="text-[10px] text-slate-500 font-normal">/ bag</span></td>
+        <td class="py-3 px-4">
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Active</span>
+          </span>
+        </td>
+        <td class="py-3 px-4 text-right font-medium text-slate-600">Admin</td>
+      `;
+      tbody.insertBefore(newRow, tbody.firstChild);
+
+      // 4. Update revision count pill
+      document.getElementById('historyCountPill').innerText = revisionCounter + ' Revisions Recorded';
+
+      // 5. Scroll smoothly to toast
       toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     function resetFormToDefaults() {
       document.getElementById('traderRateInput').value = '1.25';
       document.getElementById('agentRateInput').value = '1.00';
-      document.getElementById('effectiveDateInput').value = '11-11-2026';
-      updateTraderPreview('1.25');
-      updateAgentPreview('1.00');
-      updateDatePreview('11-11-2026');
+      document.getElementById('effectiveDateInput').value = '2026-11-11';
       document.getElementById('saveToast').classList.add('hidden');
     }
   </script>

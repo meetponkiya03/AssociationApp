@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +10,35 @@
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <style>
     * {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
+
     .font-mono {
       font-family: 'JetBrains Mono', monospace !important;
     }
+
     /* Prevent image broken-text overlap */
-    img:not([src]), img[src=""] {
+    img:not([src]),
+    img[src=""] {
       display: none !important;
     }
   </style>
 </head>
-<body class="bg-[#f0f6fc] min-h-screen h-screen flex items-center justify-center p-4 font-sans select-none text-slate-800">
+
+<body
+  class="bg-[#f0f6fc] min-h-screen h-screen flex items-center justify-center p-4 font-sans select-none text-slate-800">
 
   <!-- Step 3: Select Financial Year Card (Matching Screenshot Step 3) -->
   <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-slate-200/90 flex flex-col relative">
-    
+
     <!-- Header with Brand Logo & Wave -->
-    <header class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/80 px-5 py-3 overflow-hidden rounded-t-2xl">
+    <header
+      class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/80 px-5 py-3 overflow-hidden rounded-t-2xl">
       <!-- Wavy background overlay -->
       <div class="absolute inset-0 pointer-events-none opacity-30">
         <svg class="w-full h-full object-cover" viewBox="0 0 600 60" preserveAspectRatio="none" fill="none">
@@ -38,18 +47,20 @@
       </div>
       <div class="relative z-10 flex items-center gap-3">
         <!-- Crisp SutraPlus Brand Icon / Logo Placeholder -->
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 via-red-500 to-rose-600 p-0.5 shadow-2xs flex-shrink-0 flex items-center justify-center">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 via-red-500 to-rose-600 p-0.5 shadow-2xs flex-shrink-0 flex items-center justify-center">
           <div class="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
             <!-- Liquor bottle & ledger clipboard icon -->
             <svg class="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M7 2h10v2H7zm0 18h10v2H7zm2-14h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm2 2v6h2V10h-2z"/>
+              <path
+                d="M7 2h10v2H7zm0 18h10v2H7zm2-14h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm2 2v6h2V10h-2z" />
             </svg>
           </div>
         </div>
         <img src="" alt="" class="h-9 w-auto min-w-[32px] object-contain drop-shadow-xs" />
         <div class="flex flex-col">
           <h1 class="text-lg font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
-          <p class="text-[11px] font-medium text-slate-600 font-sans">Inventory & Accounting for Liquor Outlets</p>
+          <p class="text-[11px] font-medium text-slate-600 font-sans"></p>
         </div>
       </div>
     </header>
@@ -69,21 +80,17 @@
 
       <!-- Proper Financial Year Dropdown Form -->
       <form action="preview-dashboard.html" method="get" class="w-full">
-        
+
         <!-- PROPER DROPDOWN CONTAINER -->
         <div class="relative w-full mb-6" id="fyDropdownContainer">
-          
+
           <!-- Dropdown Trigger Button (closed by default) -->
-          <button 
-            type="button" 
-            id="fyDropdownTrigger"
-            onclick="toggleDropdown()"
-            aria-haspopup="listbox"
+          <button type="button" id="fyDropdownTrigger" onclick="toggleDropdown()" aria-haspopup="listbox"
             aria-expanded="false"
-            class="w-full bg-white border border-slate-300 hover:border-slate-400 focus:border-[#1976d2] focus:ring-2 focus:ring-[#1976d2]/30 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-800 flex items-center justify-between shadow-xs transition-all cursor-pointer font-sans"
-          >
+            class="w-full bg-white border border-slate-300 hover:border-slate-400 focus:border-[#1976d2] focus:ring-2 focus:ring-[#1976d2]/30 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-800 flex items-center justify-between shadow-xs transition-all cursor-pointer font-sans">
             <span id="selectedFyDisplay">2025 - 26</span>
-            <svg id="fyChevronIcon" class="w-4 h-4 text-slate-500 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg id="fyChevronIcon" class="w-4 h-4 text-slate-500 transition-transform duration-200" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.5">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
@@ -98,80 +105,51 @@
           </select>
 
           <!-- Floating Dropdown Menu (Hidden by default, floats over card on click) -->
-          <div 
-            id="fyDropdownMenu" 
+          <div id="fyDropdownMenu"
             class="hidden absolute top-full left-0 right-0 z-50 mt-1.5 bg-white border border-slate-200 rounded-lg shadow-xl overflow-hidden text-sm divide-y divide-slate-100 font-sans animate-in fade-in zoom-in-95 duration-100"
-            role="listbox"
-          >
-            <div 
-              onclick="pickYear('2026 - 27')" 
-              data-year="2026 - 27"
-              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors"
-            >
+            role="listbox">
+            <div onclick="pickYear('2026 - 27')" data-year="2026 - 27"
+              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
               <span>2026 - 27</span>
               <span class="check-icon hidden text-white">✓</span>
             </div>
 
-            <div 
-              onclick="pickYear('2025 - 26')" 
-              data-year="2025 - 26"
-              class="fy-option px-4 py-2.5 bg-[#1976d2] text-white font-semibold cursor-pointer shadow-inner flex items-center justify-between transition-colors"
-            >
+            <div onclick="pickYear('2025 - 26')" data-year="2025 - 26"
+              class="fy-option px-4 py-2.5 bg-[#1976d2] text-white font-semibold cursor-pointer shadow-inner flex items-center justify-between transition-colors">
               <span>2025 - 26</span>
               <span class="check-icon text-white text-xs font-bold">✓</span>
             </div>
 
-            <div 
-              onclick="pickYear('2024 - 25')" 
-              data-year="2024 - 25"
-              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors"
-            >
+            <div onclick="pickYear('2024 - 25')" data-year="2024 - 25"
+              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
               <span>2024 - 25</span>
               <span class="check-icon hidden text-white">✓</span>
             </div>
 
-            <div 
-              onclick="pickYear('2023 - 24')" 
-              data-year="2023 - 24"
-              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors"
-            >
+            <div onclick="pickYear('2023 - 24')" data-year="2023 - 24"
+              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
               <span>2023 - 24</span>
               <span class="check-icon hidden text-white">✓</span>
             </div>
 
-            <div 
-              onclick="pickYear('2022 - 23')" 
-              data-year="2022 - 23"
-              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors"
-            >
+            <div onclick="pickYear('2022 - 23')" data-year="2022 - 23"
+              class="fy-option px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
               <span>2022 - 23</span>
               <span class="check-icon hidden text-white">✓</span>
             </div>
           </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="flex items-center gap-3 w-full justify-center">
-          <button 
-            type="submit" 
-            class="flex-1 bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1e5220] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition-all duration-150 cursor-pointer font-sans"
-          >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Action Button (Proceed) -->
+        <div class="w-full">
+          <button type="submit"
+            class="w-full bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1e5220] text-white font-semibold text-sm py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all duration-150 cursor-pointer font-sans">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <span>Proceed</span>
           </button>
-
-          <a 
-            href="preview-select-role.html" 
-            class="flex-1 border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1.5 shadow-xs transition-all duration-150 cursor-pointer font-sans"
-          >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-            <span>Cancel</span>
-          </a>
         </div>
       </form>
     </div>
@@ -208,7 +186,7 @@
     function pickYear(year) {
       // 1. Update trigger label
       document.getElementById('selectedFyDisplay').innerText = year;
-      
+
       // 2. Update hidden native select
       const nativeSelect = document.getElementById('nativeFySelect');
       if (nativeSelect) {
@@ -233,7 +211,7 @@
     }
 
     // Close dropdown on outside click
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
       const container = document.getElementById('fyDropdownContainer');
       if (container && !container.contains(event.target)) {
         closeDropdown();
@@ -241,11 +219,12 @@
     });
 
     // Close on Escape key
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
         closeDropdown();
       }
     });
   </script>
 </body>
+
 </html>
