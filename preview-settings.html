@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SutraPlus - Settings (Bag Rate Configuration)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-[#f4f8fc] h-screen w-screen overflow-hidden font-sans antialiased text-slate-800 flex flex-col m-0 p-0 select-none">
+
+  <!-- =========================================================================
+       TOP GLOBAL NAVBAR
+  ========================================================================== -->
+  <header
+    class="relative w-full bg-gradient-to-r from-blue-50/80 via-blue-100/50 to-blue-200/60 border-b border-blue-200/80 select-none overflow-hidden flex-shrink-0 z-20 shadow-xs">
+    <!-- Wavy overlay -->
+    <div class="absolute inset-0 pointer-events-none opacity-30">
+      <svg class="w-full h-full object-cover" viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none">
+        <path d="M0,30 C320,65 680,5 1020,40 C1200,60 1340,20 1440,28 L1440,0 L0,0 Z" fill="#3b82f6"
+          fill-opacity="0.3" />
+      </svg>
+    </div>
+
+    <div class="relative z-10 flex items-center justify-between px-6 py-2.5">
+      <!-- Left: Logo & Branding -->
+      <div class="flex items-center gap-3.5">
+        <img src="" alt="SutraPlus Logo" class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm" />
+        <div class="flex flex-col">
+          <h1 class="text-xl md:text-2xl font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
+          <p class="text-xs font-medium text-slate-600 tracking-wide font-sans">Inventory & Accounting for Liquor
+            Outlets</p>
+        </div>
+      </div>
+
+      <!-- Right: Role & Fiscal Year Context Badge -->
+      <div
+        class="flex items-center gap-2 text-sm font-semibold text-slate-700 bg-white/70 px-4 py-1.5 rounded-full border border-blue-200 shadow-xs font-sans">
+        <span class="text-[#0c2444] font-bold">Trader</span>
+        <span class="text-slate-400">|</span>
+        <span class="text-slate-600">FY : <strong class="text-slate-800">2025 - 26</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       FULL-SCREEN APP BODY (SIDEBAR + WORKSPACE)
+  ========================================================================== -->
+  <div class="flex flex-1 overflow-hidden w-full h-[calc(100vh-61px)]">
+
+    <!-- Standardized 7-item Sidebar Navigation -->
+    <aside
+      class="w-64 min-w-[256px] bg-[#0c2444] text-white flex flex-col justify-start select-none py-5 px-3 shadow-xl flex-shrink-0 z-10 overflow-y-auto">
+      <nav class="space-y-1.5 font-sans" id="sidebarNav">
+        <!-- 1. Dashboard -->
+        <a href="preview-dashboard.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
+          <span class="font-medium tracking-wide">Dashboard</span>
+        </a>
+
+        <!-- 2. Add Record -->
+        <a href="preview-add-record.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span class="font-medium tracking-wide">Add Record</span>
+        </a>
+
+        <!-- 3. Import from Excel -->
+        <a href="preview-import-excel.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <div
+            class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-white/20 rounded border border-white/30 text-xs font-bold text-white">
+            X</div>
+          <span class="font-medium tracking-wide">Import from Excel</span>
+        </a>
+
+        <!-- 4. Records -->
+        <a href="preview-view-records.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span class="font-medium tracking-wide">Records</span>
+        </a>
+
+        <!-- 5. Reports -->
+        <a href="#reports"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          <span class="font-medium tracking-wide">Reports</span>
+        </a>
+
+        <!-- 6. Settings (Active on this screen) -->
+        <a href="preview-settings.html"
+          class="sidebar-item active group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1976d2] text-white shadow-sm transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+            </path>
+          </svg>
+          <span class="font-medium tracking-wide">Settings</span>
+        </a>
+
+        <!-- 7. Logout -->
+        <a href="preview-login.html"
+          class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#f87171] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-[#f87171] group-hover:text-white" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span class="font-medium tracking-wide">Logout</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 h-full overflow-y-auto bg-[#f4f8fc]">
+      <section class="p-6 md:p-8 w-full max-w-5xl mx-auto font-sans">
+
+        <!-- Screen Title -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-blue-100/80 border border-blue-200 flex items-center justify-center text-[#1976d2] flex-shrink-0 shadow-xs">
+              <svg class="w-6 h-6 stroke-[#1976d2]" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0c2340]">Bag Rate Settings</h2>
+              <p class="text-xs text-slate-500 font-medium mt-0.5">Configure role-specific association fees per bag for
+                Traders and Commission Agents</p>
+            </div>
+          </div>
+
+          <!-- Active Policy Pill -->
+          <div
+            class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-2xs self-start sm:self-auto">
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span>Role-Based Rates Active</span>
+          </div>
+        </div>
+
+        <!-- 3 KPI Status Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <!-- Card 1: Trader Rate -->
+          <div class="bg-white rounded-xl border border-blue-200/90 p-4 shadow-xs relative overflow-hidden">
+            <div class="absolute -right-3 -top-3 w-16 h-16 bg-blue-50 rounded-full pointer-events-none opacity-50">
+            </div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Trader Bag Rate</span>
+              <span
+                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-[#1976d2]">Trader</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span id="kpiTraderRate" class="text-3xl font-bold text-[#1976d2] font-mono">₹ 1.25</span>
+              <span class="text-xs font-medium text-slate-500">/ bag</span>
+            </div>
+            <div class="mt-2 text-xs font-medium text-slate-500 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-blue-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>Applied to wholesale & retail traders</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Commission Agent Rate -->
+          <div class="bg-white rounded-xl border border-indigo-200/90 p-4 shadow-xs relative overflow-hidden">
+            <div class="absolute -right-3 -top-3 w-16 h-16 bg-indigo-50 rounded-full pointer-events-none opacity-50">
+            </div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Commission Agent Rate</span>
+              <span
+                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700">Agent</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span id="kpiAgentRate" class="text-3xl font-bold text-[#4338ca] font-mono">₹ 1.00</span>
+              <span class="text-xs font-medium text-slate-500">/ bag</span>
+            </div>
+            <div class="mt-2 text-xs font-medium text-slate-500 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-indigo-600 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>Applied to commission brokers</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Effective Schedule -->
+          <div class="bg-white rounded-xl border border-slate-200/90 p-4 shadow-xs">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Effective Schedule</span>
+              <span
+                class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Active</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span id="kpiEffectiveDate" class="text-2xl font-bold text-[#0c2340] font-mono">11-11-2026</span>
+            </div>
+            <div class="mt-2 text-xs text-slate-500 font-medium flex items-center gap-1">
+              <span>Differential role pricing active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Toast Notification (Hidden by default) -->
+        <div id="saveToast"
+          class="hidden mb-5 bg-emerald-50 border border-emerald-300 text-emerald-900 px-4 py-3 rounded-xl shadow-xs flex items-center justify-between transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-emerald-900" id="toastMessage">Bag rates updated successfully!</p>
+              <p class="text-xs text-emerald-700">The respective rates will apply directly to Trader and Commission
+                Agent transactions.</p>
+            </div>
+          </div>
+          <button type="button" onclick="document.getElementById('saveToast').classList.add('hidden')"
+            class="text-emerald-700 hover:text-emerald-900 text-sm font-bold px-2 py-1">✕</button>
+        </div>
+
+        <!-- Main Configuration Card & Form -->
+        <div class="bg-white rounded-xl border border-slate-200/90 shadow-sm p-6 md:p-8 mb-6">
+          <!-- Card Header & Policy Notice -->
+          <div class="border-b border-slate-200 pb-5 mb-6">
+            <div class="flex items-center gap-2 mb-2">
+              <h3 class="text-lg font-bold text-[#0c2340]">Set Association Bag Rates</h3>
+              <span
+                class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1976d2] border border-blue-200">Different
+                Role Rates</span>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Traders and Commission Agents have separate cess rates. When transactions are recorded, the system
+              automatically applies the respective rate according to the selected user or party role.
+            </p>
+
+            <!-- Information Banner -->
+            <div
+              class="mt-3.5 bg-blue-50/70 border border-blue-200/80 rounded-lg p-3 flex items-start gap-2.5 text-xs text-blue-900">
+              <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>
+                <strong>Role Rate Rules:</strong> Transactions under <strong>Trader</strong> use the Trader Bag Rate.
+                Transactions under <strong>Commission Agent</strong> use the Commission Agent Bag Rate.
+              </span>
+            </div>
+          </div>
+
+          <!-- Configuration Form -->
+          <form id="bagRateForm" onsubmit="handleRateFormSubmit(event)">
+
+            <!-- Side-by-Side Rate Configuration Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+              <!-- 1. Trader Rate Card -->
+              <div class="bg-blue-50/50 border border-blue-200/90 rounded-xl p-5 shadow-2xs relative">
+                <div class="flex items-center justify-between mb-3.5">
+                  <div class="flex items-center gap-2.5">
+                    <div
+                      class="w-9 h-9 rounded-lg bg-blue-100 text-[#1976d2] flex items-center justify-center font-bold shadow-2xs">
+                      <svg class="w-5 h-5 text-[#1976d2]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-bold text-[#0c2340]">Trader Rate</h4>
+                      <p class="text-[11px] text-slate-500">Registered Wholesale & Retail Traders</p>
+                    </div>
+                  </div>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-[#1976d2]">Trader</span>
+                </div>
+
+                <div>
+                  <label for="traderRateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Rate per Bag (₹) <span class="text-red-500 font-bold">*</span>
+                  </label>
+                  <div class="relative rounded-lg shadow-2xs">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                      <span class="text-slate-500 font-bold text-base">₹</span>
+                    </div>
+                    <input type="number" id="traderRateInput" name="traderRate" step="0.01" min="0.01" max="1000.00"
+                      value="1.25" required oninput="updateTraderPreview(this.value)"
+                      class="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-24 py-2.5 text-base font-bold text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2] transition-colors"
+                      placeholder="1.25" />
+                    <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
+                      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Per Bag</span>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-2">Cess charged for transactions recorded under Trader role
+                  </p>
+                </div>
+              </div>
+
+              <!-- 2. Commission Agent Rate Card -->
+              <div class="bg-indigo-50/50 border border-indigo-200/90 rounded-xl p-5 shadow-2xs relative">
+                <div class="flex items-center justify-between mb-3.5">
+                  <div class="flex items-center gap-2.5">
+                    <div
+                      class="w-9 h-9 rounded-lg bg-indigo-100 text-[#4338ca] flex items-center justify-center font-bold shadow-2xs">
+                      <svg class="w-5 h-5 text-[#4338ca]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-bold text-[#0c2340]">Commission Agent Rate</h4>
+                      <p class="text-[11px] text-slate-500">Licensed Commission Agents & Brokers</p>
+                    </div>
+                  </div>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-[#4338ca]">Agent</span>
+                </div>
+
+                <div>
+                  <label for="agentRateInput" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Rate per Bag (₹) <span class="text-red-500 font-bold">*</span>
+                  </label>
+                  <div class="relative rounded-lg shadow-2xs">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                      <span class="text-slate-500 font-bold text-base">₹</span>
+                    </div>
+                    <input type="number" id="agentRateInput" name="agentRate" step="0.01" min="0.01" max="1000.00"
+                      value="1.00" required oninput="updateAgentPreview(this.value)"
+                      class="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-24 py-2.5 text-base font-bold text-slate-800 font-mono focus:ring-2 focus:ring-[#4338ca] focus:border-[#4338ca] transition-colors"
+                      placeholder="1.00" />
+                    <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
+                      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Per Bag</span>
+                    </div>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-2">Cess charged for transactions recorded under Agent role</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Effective Date Row -->
+            <div class="max-w-md mb-2">
+              <label for="effectiveDateInput" class="block text-sm font-semibold text-slate-800 mb-1.5">
+                Effective From Date <span class="text-red-500 font-bold">*</span>
+              </label>
+              <div class="relative">
+                <input type="date" id="effectiveDateInput" name="effectiveDate" value="11-11-2026" required
+                  oninput="updateDatePreview(this.value)"
+                  class="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 font-mono focus:ring-2 focus:ring-[#1976d2] focus:border-[#1976d2] pr-10" />
+                
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1">Date from which new transactions apply these rates</p>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-end gap-3 mt-8 pt-5 border-t border-slate-200">
+              <button type="button" onclick="resetFormToDefaults()"
+                class="w-full sm:w-auto bg-[#e2e8f0] hover:bg-slate-300 text-slate-700 font-semibold text-sm px-6 py-2.5 rounded-lg border border-slate-300 flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                <svg class="w-4 h-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                </svg>
+                <span>Reset</span>
+              </button>
+
+              <button type="submit"
+                class="w-full sm:w-auto bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1b5e20] text-white font-semibold text-sm px-8 py-2.5 rounded-lg flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-colors">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Save Bag Rate Settings</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    function formatCurrency(val) {
+      const num = parseFloat(val) || 0;
+      return '₹ ' + num.toFixed(2);
+    }
+
+    function updateTraderPreview(val) {
+      const formatted = formatCurrency(val);
+      document.getElementById('kpiTraderRate').innerText = formatted;
+    }
+
+    function updateAgentPreview(val) {
+      const formatted = formatCurrency(val);
+      document.getElementById('kpiAgentRate').innerText = formatted;
+    }
+
+    function updateDatePreview(val) {
+      document.getElementById('kpiEffectiveDate').innerText = val || '11-11-2026';
+    }
+
+    function handleRateFormSubmit(event) {
+      event.preventDefault();
+      const traderVal = document.getElementById('traderRateInput').value;
+      const agentVal = document.getElementById('agentRateInput').value;
+      const formattedTrader = formatCurrency(traderVal);
+      const formattedAgent = formatCurrency(agentVal);
+
+      // Show toast
+      const toast = document.getElementById('saveToast');
+      document.getElementById('toastMessage').innerText = 'Bag rates updated: Trader ' + formattedTrader + ' / bag, Commission Agent ' + formattedAgent + ' / bag successfully!';
+      toast.classList.remove('hidden');
+
+      // Scroll to toast smoothly
+      toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function resetFormToDefaults() {
+      document.getElementById('traderRateInput').value = '1.25';
+      document.getElementById('agentRateInput').value = '1.00';
+      document.getElementById('effectiveDateInput').value = '11-11-2026';
+      updateTraderPreview('1.25');
+      updateAgentPreview('1.00');
+      updateDatePreview('11-11-2026');
+      document.getElementById('saveToast').classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>

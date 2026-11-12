@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SutraPlus - Select User Type</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+    img:not([src]), img[src=""] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body class="bg-[#f0f6fc] min-h-screen h-screen flex items-center justify-center p-4 font-sans select-none text-slate-800">
+
+  <!-- Step 2: Select User Type Card (Matching Screenshot Step 2) -->
+  <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-slate-200/90 overflow-hidden flex flex-col">
+    <!-- Header with Brand Logo & Wave -->
+    <header class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/80 px-5 py-3 overflow-hidden">
+      <div class="relative z-10 flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 via-red-500 to-rose-600 p-0.5 shadow-2xs flex-shrink-0 flex items-center justify-center">
+          <div class="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 2h10v2H7zm0 18h10v2H7zm2-14h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm2 2v6h2V10h-2z"/>
+            </svg>
+          </div>
+        </div>
+        <img src="" alt="" class="h-9 w-auto min-w-[32px] object-contain drop-shadow-xs" />
+        <div class="flex flex-col">
+          <h1 class="text-lg font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
+          <p class="text-[11px] font-medium text-slate-600 font-sans">Inventory & Accounting for Liquor Outlets</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="p-8 flex flex-col items-center">
+      <div class="flex items-center gap-2.5 mb-6">
+        <svg class="w-6 h-6 fill-[#0c2444]" viewBox="0 0 24 24">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        </svg>
+        <h2 class="text-xl font-bold text-[#0c2340] font-sans">Select User Type</h2>
+      </div>
+
+      <div class="w-full space-y-3 mb-6">
+        <!-- Trader Option (Selected) -->
+        <button 
+          type="button" 
+          onclick="setRole('Trader')" 
+          id="btnTrader"
+          class="w-full flex items-center gap-4 p-3.5 rounded-xl border-2 border-[#1976d2] bg-[#dbeafe] text-slate-800 transition-all cursor-pointer font-sans shadow-xs"
+        >
+          <div class="text-[#0c2444]">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+              <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
+              <path d="M2 7h20"></path>
+              <path d="M22 7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2"></path>
+            </svg>
+          </div>
+          <span class="text-base font-bold text-[#0c2340] font-sans">Trader</span>
+        </button>
+
+        <!-- Commission Agent Option -->
+        <button 
+          type="button" 
+          onclick="setRole('Commission Agent')" 
+          id="btnAgent"
+          class="w-full flex items-center gap-4 p-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all cursor-pointer font-sans shadow-xs"
+        >
+          <div class="text-slate-700">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m11 17 2 2a1 1 0 0 0 1.42 0l3.58-3.58a1 1 0 0 0 0-1.42l-2-2"></path>
+              <path d="m18 11 2-2a1 1 0 0 0 0-1.42l-3.58-3.58a1 1 0 0 0-1.42 0l-2 2"></path>
+              <path d="m9 15-4-4a2 2 0 0 1 0-2.83l3.17-3.17a2 2 0 0 1 2.83 0l4 4"></path>
+              <path d="m15 9 4 4a2 2 0 0 1 0 2.83l-3.17 3.17a2 2 0 0 1-2.83 0l-4-4"></path>
+            </svg>
+          </div>
+          <span class="text-base font-bold text-slate-800 font-sans">Commission Agent</span>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 w-full justify-center">
+        <a 
+          href="preview-select-fy.html" 
+          class="flex-1 bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1e5220] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition-all duration-150 cursor-pointer font-sans"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Continue</span>
+        </a>
+
+        <a 
+          href="preview-login.html" 
+          class="flex-1 border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1.5 shadow-xs transition-all duration-150 cursor-pointer font-sans"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>Cancel</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setRole(role) {
+      const traderBtn = document.getElementById('btnTrader');
+      const agentBtn = document.getElementById('btnAgent');
+      if (role === 'Trader') {
+        traderBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border-2 border-[#1976d2] bg-[#dbeafe] text-slate-800 transition-all cursor-pointer font-sans shadow-xs";
+        agentBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all cursor-pointer font-sans shadow-xs";
+      } else {
+        agentBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border-2 border-[#1976d2] bg-[#dbeafe] text-slate-800 transition-all cursor-pointer font-sans shadow-xs";
+        traderBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all cursor-pointer font-sans shadow-xs";
+      }
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+/* Custom CSS rules for Header Component if needed beyond Tailwind */
+:host {
+  display: block;
+}
+

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SutraPlus - Cross Check</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-[#f4f8fc] h-screen w-screen overflow-hidden font-sans antialiased text-slate-800 flex flex-col m-0 p-0 select-none">
+
+  <!-- Full-Width Top Header Navbar -->
+  <header class="relative w-full bg-gradient-to-r from-blue-50/80 via-blue-100/50 to-blue-200/60 border-b border-blue-200/80 select-none overflow-hidden flex-shrink-0 z-20 shadow-xs">
+    <!-- Wavy overlay -->
+    <div class="absolute inset-0 pointer-events-none opacity-30">
+      <svg class="w-full h-full object-cover" viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none">
+        <path d="M0,30 C320,65 680,5 1020,40 C1200,60 1340,20 1440,28 L1440,0 L0,0 Z" fill="#3b82f6" fill-opacity="0.3" />
+      </svg>
+    </div>
+
+    <div class="relative z-10 flex items-center justify-between px-6 py-2.5">
+      <!-- Left: Logo & Branding -->
+      <div class="flex items-center gap-3.5">
+        <img src="" alt="SutraPlus Logo" class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm" />
+        <div class="flex flex-col">
+          <h1 class="text-xl md:text-2xl font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
+          <p class="text-xs font-medium text-slate-600 tracking-wide font-sans">Inventory & Accounting for Liquor Outlets</p>
+        </div>
+      </div>
+
+      <!-- Right: Role & Fiscal Year Context Badge -->
+      <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 bg-white/70 px-4 py-1.5 rounded-full border border-blue-200 shadow-xs font-sans">
+        <span class="text-[#0c2444] font-bold">Trader</span>
+        <span class="text-slate-400">|</span>
+        <span class="text-slate-600">FY : <strong class="text-slate-800">2025 - 26</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-Screen App Body -->
+  <div class="flex flex-1 overflow-hidden w-full h-[calc(100vh-61px)]">
+    <!-- Standardized 7-item Sidebar Navigation -->
+    <aside class="w-64 min-w-[256px] bg-[#0c2444] text-white flex flex-col justify-start select-none py-5 px-3 shadow-xl flex-shrink-0 z-10 overflow-y-auto">
+      <nav class="space-y-1.5 font-sans" id="sidebarNav">
+        <!-- 1. Dashboard -->
+        <a href="preview-dashboard.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="font-medium tracking-wide">Dashboard</span>
+        </a>
+
+
+
+        <!-- 4. Add Record -->
+        <a href="preview-add-record.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+          <span class="font-medium tracking-wide">Add Record</span>
+        </a>
+
+        <!-- 5. Import from Excel -->
+        <a href="preview-import-excel.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-white/20 rounded border border-white/30 text-xs font-bold text-white">X</div>
+          <span class="font-medium tracking-wide">Import from Excel</span>
+        </a>
+
+        <!-- 4. Records -->
+        <a href="preview-view-records.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span class="font-medium tracking-wide">Records</span>
+        </a>
+
+        <!-- 9. Reports -->
+        <a href="#reports" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span class="font-medium tracking-wide">Reports</span>
+        </a>
+
+        <!-- 6. Settings -->
+        <a href="preview-settings.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span class="font-medium tracking-wide">Settings</span>
+        </a>
+
+        <!-- 11. Logout -->
+        <a href="preview-login.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#f87171] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+          <svg class="w-5 h-5 flex-shrink-0 text-[#f87171] group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span class="font-medium tracking-wide">Logout</span>
+        </a>
+      </nav>
+
+      <!-- Edit Button in Sidebar (As shown in screenshot) -->
+      <div class="px-2 pt-4 mt-6">
+        <button type="button" onclick="alert('Editing Cross Check discrepancies...');" class="w-full bg-[#051829] hover:bg-slate-950 text-white font-semibold text-xs py-2 rounded-full border border-blue-900/50 shadow-inner cursor-pointer transition-colors">
+          Edit
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 h-full overflow-y-auto bg-[#f4f8fc]">
+      <section class="p-6 md:p-10 w-full max-w-7xl mx-auto font-sans">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="text-[#1976d2] flex-shrink-0">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0c2340]">Cross Check</h2>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200/90 shadow-xs p-4 mb-5 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <label class="text-sm font-semibold text-slate-800">Select Month</label>
+            <div class="relative min-w-[220px]">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                <svg class="w-4 h-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <select class="w-full bg-white border border-slate-300 rounded-lg pl-9 pr-8 py-1.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#1976d2] appearance-none cursor-pointer">
+                <option selected>November - 2026</option>
+                <option>October - 2026</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-500">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-medium text-sm px-4 py-1.5 rounded-lg flex items-center gap-2 shadow-xs cursor-pointer transition-colors">
+            <svg class="w-4 h-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Refresh</span>
+          </button>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200/90 shadow-sm overflow-hidden mb-5">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+              <thead>
+                <tr class="bg-[#1565c0] text-white">
+                  <th class="py-2.5 px-4 text-center font-semibold w-16 border-r border-blue-400/40">S.No</th>
+                  <th class="py-2.5 px-4 font-semibold border-r border-blue-400/40 min-w-[200px]">Party Name</th>
+                  <th class="py-2.5 px-4 text-center font-semibold border-r border-blue-400/40 min-w-[170px]">GSTIN</th>
+                  <th class="py-2.5 px-4 text-center font-semibold border-r border-blue-400/40 min-w-[120px]">Agent Bags</th>
+                  <th class="py-2.5 px-4 text-center font-semibold border-r border-blue-400/40 min-w-[120px]">Trader Bags</th>
+                  <th class="py-2.5 px-4 text-center font-semibold min-w-[130px]">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 bg-white">
+                <tr class="hover:bg-slate-50/60">
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">1</td>
+                  <td class="py-2.5 px-4 font-medium border-r border-slate-200">M/s. ABC Traders</td>
+                  <td class="py-2.5 px-4 text-center font-mono text-xs border-r border-slate-200">29ABCDE1234F1Z5</td>
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">50</td>
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">50</td>
+                  <td class="py-2.5 px-4 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#e8f5e9] text-[#2e7d32] border border-[#a5d6a7]">
+                      <svg class="w-3.5 h-3.5 fill-[#2e7d32]" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Match</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/60">
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">2</td>
+                  <td class="py-2.5 px-4 font-medium border-r border-slate-200">M/s. Royal Distributors</td>
+                  <td class="py-2.5 px-4 text-center font-mono text-xs border-r border-slate-200">29FGHIJ5678K1Z9</td>
+                  <td class="py-2.5 px-4 text-center bg-[#ffebee] text-[#c62828] font-bold border-r border-slate-200">75</td>
+                  <td class="py-2.5 px-4 text-center bg-[#ffebee] text-[#c62828] font-bold border-r border-slate-200">70</td>
+                  <td class="py-2.5 px-4 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#ffebee] text-[#d32f2f] border border-[#ef9a9a]">
+                      <svg class="w-3.5 h-3.5 fill-[#d32f2f]" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                      <span>Mismatch</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/60">
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">3</td>
+                  <td class="py-2.5 px-4 font-medium border-r border-slate-200">M/s. Metro Traders</td>
+                  <td class="py-2.5 px-4 text-center font-mono text-xs border-r border-slate-200">29KLMNO9012P1Z3</td>
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">120</td>
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">120</td>
+                  <td class="py-2.5 px-4 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#e8f5e9] text-[#2e7d32] border border-[#a5d6a7]">
+                      <svg class="w-3.5 h-3.5 fill-[#2e7d32]" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Match</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/60">
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">4</td>
+                  <td class="py-2.5 px-4 font-medium border-r border-slate-200">M/s. Global Supplies</td>
+                  <td class="py-2.5 px-4 text-center font-mono text-xs border-r border-slate-200">29QRSTU3456V1Z7</td>
+                  <td class="py-2.5 px-4 text-center bg-[#ffebee] text-[#c62828] font-bold border-r border-slate-200">60</td>
+                  <td class="py-2.5 px-4 text-center bg-[#ffebee] text-[#c62828] font-bold border-r border-slate-200">65</td>
+                  <td class="py-2.5 px-4 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#ffebee] text-[#d32f2f] border border-[#ef9a9a]">
+                      <svg class="w-3.5 h-3.5 fill-[#d32f2f]" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                      <span>Mismatch</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/60">
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">5</td>
+                  <td class="py-2.5 px-4 font-medium border-r border-slate-200">M/s. City Traders</td>
+                  <td class="py-2.5 px-4 text-center font-mono text-xs border-r border-slate-200">29VWXYZ7890A1Z2</td>
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">90</td>
+                  <td class="py-2.5 px-4 text-center border-r border-slate-200">90</td>
+                  <td class="py-2.5 px-4 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#e8f5e9] text-[#2e7d32] border border-[#a5d6a7]">
+                      <svg class="w-3.5 h-3.5 fill-[#2e7d32]" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                      <span>Match</span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-slate-50 border-t border-slate-200 px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-4 text-sm md:text-base font-semibold text-slate-800">
+              <div>Total Agent Bags : <span class="text-[#1565c0] font-bold text-lg md:text-xl ml-1">395</span></div>
+              <div class="text-slate-300 text-lg hidden sm:block">|</div>
+              <div>Total Trader Bags : <span class="text-[#1565c0] font-bold text-lg md:text-xl ml-1">395</span></div>
+            </div>
+            <div class="flex items-center gap-2 text-sm md:text-base font-bold text-[#d32f2f]">
+              <svg class="w-5 h-5 fill-[#d32f2f] flex-shrink-0" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+              <span>Mismatch Found : 2 Parties</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

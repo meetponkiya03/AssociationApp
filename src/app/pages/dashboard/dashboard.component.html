@@ -1,0 +1,186 @@
+<!-- =========================================================================
+     SutraPlus - Step 4: Master Dashboard Screen Component
+     Angular Component: DashboardComponent
+     Selector: app-dashboard
+     Template: dashboard.component.html
+     Description: Step 4 of the flow. Overview of Purchases, Sales, Stock Value,
+                  Profit KPIs, and Monthly Sales chart. Fits entirely in a single
+                  page with zero vertical scroll needed.
+========================================================================= -->
+
+<section class="h-full w-full max-w-7xl mx-auto flex flex-col justify-between font-sans select-none overflow-hidden">
+  <!-- Screen Header Title -->
+  <div class="flex items-center gap-2.5 mb-2.5 flex-shrink-0">
+    <div class="text-[#0c2340] flex-shrink-0">
+      <!-- Speedometer / Gauge Dashboard Icon matching screenshot -->
+      <svg class="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 14 4-4"></path>
+        <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
+      </svg>
+    </div>
+    <h2 class="text-xl md:text-2xl font-bold tracking-tight text-[#0c2340] font-sans">
+      Dashboard
+    </h2>
+  </div>
+
+  <!-- 4 Primary KPI Summary Cards (Compact Single-Page Row/Grid) -->
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4 mb-3 md:mb-3.5 flex-shrink-0">
+    
+    <!-- 1. Purchase Card -->
+    <div class="bg-white rounded-xl border border-slate-200/90 shadow-xs p-3 md:p-3.5 flex items-center gap-3.5 hover:shadow-sm transition-shadow">
+      <!-- Green Shopping Cart Icon Badge -->
+      <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+        <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <div class="text-xs font-semibold text-slate-500 font-sans truncate">Purchase</div>
+        <!-- Angular: {{ purchaseAmount | currency:'INR':'symbol' }} -->
+        <div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] tracking-tight font-sans">
+          ₹ 12,58,000
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Sales Card -->
+    <div class="bg-white rounded-xl border border-slate-200/90 shadow-xs p-3 md:p-3.5 flex items-center gap-3.5 hover:shadow-sm transition-shadow">
+      <!-- Green Shopping Cart with Star / Badge Icon -->
+      <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+        <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+          <polygon points="12 7 13.5 10 16.5 10 14 12 15 15 12 13 9 15 10 12 7.5 10 10.5 10" fill="currentColor" stroke="none"></polygon>
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <div class="text-xs font-semibold text-slate-500 font-sans truncate">Sales</div>
+        <!-- Angular: {{ salesAmount | currency:'INR':'symbol' }} -->
+        <div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] tracking-tight font-sans">
+          ₹ 18,74,500
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Stock Value Card -->
+    <div class="bg-white rounded-xl border border-slate-200/90 shadow-xs p-3 md:p-3.5 flex items-center gap-3.5 hover:shadow-sm transition-shadow">
+      <!-- Gold / Amber 3D Isometric Boxes Stack Icon -->
+      <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-500 flex-shrink-0">
+        <svg class="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l-7 4v5l7 4 7-4V6l-7-4zm0 2.24L16.8 7 12 9.76 7.2 7 12 4.24zM6 7.84l5 2.85v4.54l-5-2.86V7.84zm7 7.39V10.7l5-2.85v4.53l-5 2.85z"/>
+          <path d="M4 14l-2 1.14v4.57L9 23v-4.57L4 14zm16 0l-5 4.43V23l7-3.29v-4.57L20 14z" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <div class="text-xs font-semibold text-slate-500 font-sans truncate">Stock Value</div>
+        <!-- Angular: {{ stockValue | currency:'INR':'symbol' }} -->
+        <div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] tracking-tight font-sans">
+          ₹ 36,42,300
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Profit Card -->
+    <div class="bg-white rounded-xl border border-slate-200/90 shadow-xs p-3 md:p-3.5 flex items-center gap-3.5 hover:shadow-sm transition-shadow">
+      <!-- Blue Rising Bar Chart Icon Badge -->
+      <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1976d2] flex-shrink-0">
+        <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="4"></line>
+          <line x1="12" y1="20" x2="12" y2="10"></line>
+          <line x1="6" y1="20" x2="6" y2="16"></line>
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <div class="text-xs font-semibold text-slate-500 font-sans truncate">Profit</div>
+        <!-- Angular: {{ profitAmount | currency:'INR':'symbol' }} -->
+        <div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] tracking-tight font-sans">
+          ₹ 4,26,750
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Monthly Sales Bar Chart Card (Fits single page with Zero Scroll) -->
+  <div class="flex-1 min-h-0 bg-white rounded-xl md:rounded-2xl border border-slate-200/90 shadow-xs p-4 md:p-5 flex flex-col justify-between overflow-hidden">
+    <div class="flex items-center justify-between mb-2 md:mb-3 flex-shrink-0">
+      <h3 class="text-sm md:text-base font-bold text-slate-900 font-sans">
+        Monthly Sales
+      </h3>
+      <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded font-sans">
+        FY 2025 - 26
+      </span>
+    </div>
+
+    <!-- Chart Visualization Container -->
+    <div class="w-full flex-1 flex flex-col justify-end min-h-0">
+      <!-- Bars Area -->
+      <div class="h-40 sm:h-44 md:h-52 max-h-[220px] flex items-end justify-between gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 md:px-8 border-b-2 border-slate-200 pb-1">
+        
+        <!-- Apr Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹2.4L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 25%;"></div>
+        </div>
+
+        <!-- May Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹3.8L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 38%;"></div>
+        </div>
+
+        <!-- Jun Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹5.2L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 52%;"></div>
+        </div>
+
+        <!-- Jul Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹4.6L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 45%;"></div>
+        </div>
+
+        <!-- Aug Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹7.1L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 72%;"></div>
+        </div>
+
+        <!-- Sep Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹6.4L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 64%;"></div>
+        </div>
+
+        <!-- Oct Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹8.3L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 84%;"></div>
+        </div>
+
+        <!-- Nov Bar -->
+        <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+          <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹9.7L</div>
+          <div class="w-full max-w-[42px] bg-[#1976d2] hover:bg-[#1565c0] rounded-t-md transition-all duration-300" style="height: 96%;"></div>
+        </div>
+
+      </div>
+
+      <!-- X-Axis Month Labels -->
+      <div class="flex justify-between gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 md:px-8 mt-2 text-xs font-semibold text-slate-600 font-sans flex-shrink-0">
+        <span class="flex-1 text-center">Apr</span>
+        <span class="flex-1 text-center">May</span>
+        <span class="flex-1 text-center">Jun</span>
+        <span class="flex-1 text-center">Jul</span>
+        <span class="flex-1 text-center">Aug</span>
+        <span class="flex-1 text-center">Sep</span>
+        <span class="flex-1 text-center">Oct</span>
+        <span class="flex-1 text-center">Nov</span>
+      </div>
+    </div>
+  </div>
+</section>

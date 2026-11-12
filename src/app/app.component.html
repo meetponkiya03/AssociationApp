@@ -1,0 +1,36 @@
+<!-- =========================================================================
+     SutraPlus Root Application Component
+     Angular Component: AppComponent
+     Selector: app-root
+     Template: app.component.html
+     Description: Top-level layout that dynamically handles:
+                  - Authentication Flow (Login, Select Role, Select FY)
+                  - Full Application Workspace (Header + Sidebar + Router Outlet)
+========================================================================= -->
+
+<div class="h-screen w-screen overflow-hidden font-sans antialiased text-slate-800 bg-[#f4f8fc] flex flex-col m-0 p-0 select-none">
+
+  <!-- A. Auth Flow Layout (Full screen centered without app sidebar) -->
+  <ng-container *ngIf="isAuthRoute">
+    <router-outlet></router-outlet>
+  </ng-container>
+
+  <!-- B. Main Application Workspace Layout (Header + Sidebar + Content) -->
+  <ng-container *ngIf="!isAuthRoute">
+    <!-- Top Web Application Header Navbar -->
+    <app-header [currentRole]="userRole" [currentFY]="financialYear"></app-header>
+
+    <!-- Main Workspace -->
+    <div class="flex flex-1 overflow-hidden w-full h-[calc(100vh-61px)]">
+      <!-- Dark Navy Navigation Sidebar -->
+      <app-sidebar [showEditButton]="isCrossCheckRoute"></app-sidebar>
+
+      <!-- Routed Page Content -->
+      <main class="flex-1 bg-[#f4f8fc] overflow-y-auto overflow-x-hidden p-6 md:p-8">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </ng-container>
+
+</div>
+

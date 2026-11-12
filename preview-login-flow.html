@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SutraPlus - Authentication & Onboarding Flow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Uniform Font Family across all elements */
+    * {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+
+    .flow-step {
+      display: none;
+      animation: fadeIn 0.18s ease-in-out forwards;
+    }
+    .flow-step.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-[#f0f6fc] min-h-screen h-screen overflow-hidden flex flex-col font-sans select-none text-slate-800">
+
+  <!-- Flow Workspace -->
+  <main class="flex-1 flex flex-col justify-center items-center h-full w-full p-0 overflow-hidden">
+
+    <!-- ===================================================================
+         STEP 1: USER LOGS IN (Screen 1)
+    ==================================================================== -->
+    <div id="flow-step-1" class="flow-step active flex-col items-center justify-center w-full my-auto p-4">
+      <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-slate-200/90 overflow-hidden flex flex-col">
+        <!-- Titlebar -->
+        <header class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/80 px-5 py-3 overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none opacity-30">
+            <svg class="w-full h-full object-cover" viewBox="0 0 600 60" preserveAspectRatio="none" fill="none">
+              <path d="M0,25 C150,55 350,5 500,35 C550,45 580,20 600,25 L600,0 L0,0 Z" fill="#3b82f6" fill-opacity="0.3" />
+            </svg>
+          </div>
+          <div class="relative z-10 flex items-center gap-3">
+            <img src="" alt="SutraPlus Logo" class="h-9 w-auto min-w-[32px] object-contain drop-shadow-xs" />
+            <div class="flex flex-col">
+              <h1 class="text-lg font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
+              <p class="text-[11px] font-medium text-slate-600 font-sans">Inventory & Accounting for Liquor Outlets</p>
+            </div>
+          </div>
+        </header>
+
+        <!-- Body -->
+        <div class="p-8 flex flex-col items-center">
+          <div class="flex items-center gap-2.5 mb-6">
+            <svg class="w-6 h-6 fill-[#0c2444]" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <h2 class="text-xl font-bold text-[#0c2340] font-sans">User Login</h2>
+          </div>
+
+          <form onsubmit="event.preventDefault(); goToFlowStep(2);" class="w-full space-y-4">
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              </span>
+              <input type="text" value="admin" class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-3.5 py-2 text-sm text-slate-800 font-sans focus:ring-2 focus:ring-[#1976d2] focus:outline-none" required />
+            </div>
+
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+              </span>
+              <input type="password" value="••••••" class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-3.5 py-2 text-sm text-slate-800 tracking-widest font-sans focus:ring-2 focus:ring-[#1976d2] focus:outline-none" required />
+            </div>
+
+            <button type="submit" class="w-full bg-[#1976d2] hover:bg-[#1565c0] text-white font-semibold text-sm py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer font-sans">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+              <span>Login</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         STEP 2: SELECT USER TYPE (Screen 2)
+    ==================================================================== -->
+    <div id="flow-step-2" class="flow-step flex-col items-center justify-center w-full my-auto p-4">
+      <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-slate-200/90 overflow-hidden flex flex-col">
+        <header class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/80 px-5 py-3 overflow-hidden">
+          <div class="relative z-10 flex items-center gap-3">
+            <img src="" alt="SutraPlus Logo" class="h-9 w-auto min-w-[32px] object-contain drop-shadow-xs" />
+            <div class="flex flex-col">
+              <h1 class="text-lg font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
+              <p class="text-[11px] font-medium text-slate-600 font-sans">Inventory & Accounting for Liquor Outlets</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="p-8 flex flex-col items-center">
+          <div class="flex items-center gap-2.5 mb-6">
+            <svg class="w-6 h-6 fill-[#0c2444]" viewBox="0 0 24 24">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+            <h2 class="text-xl font-bold text-[#0c2340] font-sans">Select User Type</h2>
+          </div>
+
+          <div class="w-full space-y-3 mb-6">
+            <!-- Trader -->
+            <button type="button" onclick="selectRole('Trader')" id="btn-role-trader" class="w-full flex items-center gap-4 p-3.5 rounded-xl border-2 border-[#1976d2] bg-[#dbeafe] text-slate-800 transition-all cursor-pointer font-sans">
+              <svg class="w-7 h-7 text-[#0c2444]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path><path d="M22 7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2"></path></svg>
+              <span class="text-base font-bold text-[#0c2340] font-sans">Trader</span>
+            </button>
+            <!-- Commission Agent -->
+            <button type="button" onclick="selectRole('Commission Agent')" id="btn-role-agent" class="w-full flex items-center gap-4 p-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all cursor-pointer font-sans">
+              <svg class="w-7 h-7 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m11 17 2 2a1 1 0 0 0 1.42 0l3.58-3.58a1 1 0 0 0 0-1.42l-2-2"></path><path d="m18 11 2-2a1 1 0 0 0 0-1.42l-3.58-3.58a1 1 0 0 0-1.42 0l-2 2"></path><path d="m9 15-4-4a2 2 0 0 1 0-2.83l3.17-3.17a2 2 0 0 1 2.83 0l4 4"></path><path d="m15 9 4 4a2 2 0 0 1 0 2.83l-3.17 3.17a2 2 0 0 1-2.83 0l-4-4"></path></svg>
+              <span class="text-base font-bold text-slate-800 font-sans">Commission Agent</span>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 w-full justify-center">
+            <button type="button" onclick="goToFlowStep(3)" class="flex-1 bg-[#2e7d32] hover:bg-[#256828] text-white font-semibold text-sm py-2 rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer font-sans">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Continue</span>
+            </button>
+            <button type="button" onclick="goToFlowStep(1)" class="flex-1 border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm py-2 rounded-lg flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer font-sans">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Cancel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         STEP 3: SELECT FINANCIAL YEAR (Screen 3)
+    ==================================================================== -->
+    <div id="flow-step-3" class="flow-step flex-col items-center justify-center w-full my-auto p-4">
+      <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-slate-200/90 flex flex-col relative">
+        <header class="relative w-full bg-gradient-to-r from-blue-50/90 via-blue-100/60 to-blue-200/70 border-b border-blue-200/80 px-5 py-3 overflow-hidden rounded-t-2xl">
+          <div class="relative z-10 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 via-red-500 to-rose-600 p-0.5 shadow-2xs flex-shrink-0 flex items-center justify-center">
+              <div class="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
+                <svg class="w-5 h-5 text-amber-700" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7 2h10v2H7zm0 18h10v2H7zm2-14h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm2 2v6h2V10h-2z"/>
+                </svg>
+              </div>
+            </div>
+            <img src="" alt="" class="hidden" />
+            <div class="flex flex-col">
+              <h1 class="text-lg font-bold tracking-tight text-[#0a2540] leading-tight font-sans">SutraPlus</h1>
+              <p class="text-[11px] font-medium text-slate-600 font-sans">Inventory & Accounting for Liquor Outlets</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="p-8 flex flex-col items-center">
+          <div class="flex items-center gap-2.5 mb-6">
+            <svg class="w-6 h-6 stroke-[#0c2444] fill-none stroke-2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <h2 class="text-xl font-bold text-[#0c2340] font-sans">Select Financial Year</h2>
+          </div>
+
+          <!-- Proper Financial Year Dropdown Container -->
+          <div class="relative w-full mb-6" id="flowFyDropdownContainer">
+            <button 
+              type="button" 
+              onclick="toggleFlowFyDropdown()"
+              id="flowFyDropdownTrigger"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              class="w-full bg-white border border-slate-300 hover:border-slate-400 focus:border-[#1976d2] focus:ring-2 focus:ring-[#1976d2]/30 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-800 flex items-center justify-between shadow-xs transition-all cursor-pointer font-sans"
+            >
+              <span id="activeFyLabel">2025 - 26</span>
+              <svg id="flowFyChevron" class="w-4 h-4 text-slate-500 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+
+            <!-- Floating Dropdown Menu (Hidden by default, opens on click) -->
+            <div class="hidden absolute top-full left-0 right-0 z-50 mt-1.5 bg-white border border-slate-200 rounded-lg shadow-xl overflow-hidden text-sm divide-y divide-slate-100 font-sans" id="fyOptionsList" role="listbox">
+              <div onclick="selectFy('2026 - 27')" data-year="2026 - 27" class="flow-fy-opt px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
+                <span>2026 - 27</span>
+                <span class="flow-check hidden text-white">✓</span>
+              </div>
+              <div onclick="selectFy('2025 - 26')" data-year="2025 - 26" class="flow-fy-opt px-4 py-2.5 bg-[#1976d2] text-white font-semibold cursor-pointer shadow-inner flex items-center justify-between transition-colors">
+                <span>2025 - 26</span>
+                <span class="flow-check text-white text-xs font-bold">✓</span>
+              </div>
+              <div onclick="selectFy('2024 - 25')" data-year="2024 - 25" class="flow-fy-opt px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
+                <span>2024 - 25</span>
+                <span class="flow-check hidden text-white">✓</span>
+              </div>
+              <div onclick="selectFy('2023 - 24')" data-year="2023 - 24" class="flow-fy-opt px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
+                <span>2023 - 24</span>
+                <span class="flow-check hidden text-white">✓</span>
+              </div>
+              <div onclick="selectFy('2022 - 23')" data-year="2022 - 23" class="flow-fy-opt px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors">
+                <span>2022 - 23</span>
+                <span class="flow-check hidden text-white">✓</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 w-full justify-center">
+            <button type="button" onclick="goToFlowStep(4)" class="flex-1 bg-[#2e7d32] hover:bg-[#256828] text-white font-semibold text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer font-sans">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Proceed</span>
+            </button>
+            <button type="button" onclick="goToFlowStep(2)" class="flex-1 border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1.5 shadow-xs transition-all cursor-pointer font-sans">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Cancel</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         STEP 4: DASHBOARD (Screen 4 - Fits Single Page with Zero Scroll)
+    ==================================================================== -->
+    <div id="flow-step-4" class="flow-step flex-col w-full h-full max-h-screen overflow-hidden">
+      <!-- Full-Width Navbar for Dashboard -->
+      <header class="w-full bg-gradient-to-r from-blue-50/80 via-blue-100/50 to-blue-200/60 border-b border-blue-200/80 px-6 py-2.5 flex items-center justify-between flex-shrink-0 z-20 shadow-xs">
+        <div class="flex items-center gap-3.5">
+          <img src="" alt="SutraPlus Logo" class="h-10 w-auto min-w-[36px] object-contain drop-shadow-sm" />
+          <div class="flex flex-col">
+            <h1 class="text-xl font-bold tracking-tight text-[#0a2540] font-sans">SutraPlus</h1>
+            <p class="text-xs font-medium text-slate-600 font-sans">Inventory & Accounting for Liquor Outlets</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 bg-white/70 px-4 py-1.5 rounded-full border border-blue-200 shadow-xs font-sans">
+          <span id="dashRoleContext" class="text-[#0c2444] font-bold">Trader</span>
+          <span class="text-slate-400">|</span>
+          <span class="text-slate-600">FY : <strong id="dashFyContext" class="text-slate-800">2025 - 26</strong></span>
+        </div>
+      </header>
+
+      <div class="flex flex-1 overflow-hidden w-full h-[calc(100vh-61px)]">
+        <!-- Standardized 7-item Sidebar Navigation (Matching preview-add-record.html) -->
+        <aside class="w-64 min-w-[256px] bg-[#0c2444] text-white flex flex-col justify-start select-none py-5 px-3 shadow-xl flex-shrink-0 z-10 overflow-y-auto">
+          <nav class="space-y-1.5 font-sans" id="sidebarNav">
+            <!-- 1. Dashboard (Active) -->
+            <a href="preview-dashboard.html" class="sidebar-item active group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#1976d2] text-white shadow-sm transition-all duration-150 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span class="font-medium tracking-wide">Dashboard</span>
+            </a>
+
+            <!-- 2. Add Record -->
+            <a href="preview-add-record.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+              <span class="font-medium tracking-wide">Add Record</span>
+            </a>
+
+            <!-- 3. Import from Excel -->
+            <a href="preview-import-excel.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+              <div class="w-5 h-5 flex-shrink-0 flex items-center justify-center bg-white/20 rounded border border-white/30 text-xs font-bold text-white">X</div>
+              <span class="font-medium tracking-wide">Import from Excel</span>
+            </a>
+
+            <!-- 4. Records -->
+            <a href="preview-view-records.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span class="font-medium tracking-wide">Records</span>
+            </a>
+
+            <!-- 5. Reports -->
+            <a href="#reports" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              <span class="font-medium tracking-wide">Reports</span>
+            </a>
+
+            <!-- 6. Settings -->
+            <a href="preview-settings.html" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#c0d4ec] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span class="font-medium tracking-wide">Settings</span>
+            </a>
+
+            <!-- 7. Logout -->
+            <a href="javascript:void(0)" onclick="goToFlowStep(1)" class="sidebar-item group flex items-center gap-3.5 px-4 py-2.5 rounded-lg text-sm text-[#f87171] hover:bg-[#163864] hover:text-white transition-all duration-150 cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-[#f87171] group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+              <span class="font-medium tracking-wide">Logout</span>
+            </a>
+          </nav>
+        </aside>
+
+        <!-- Dashboard Workspace (Single Page, No Scroll) -->
+        <main class="flex-1 h-full overflow-hidden bg-[#f4f8fc] p-4 md:p-5 flex flex-col justify-between">
+          <div class="flex items-center gap-2.5 mb-2.5 flex-shrink-0">
+            <svg class="w-6 h-6 md:w-7 md:h-7 text-[#0c2340]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg>
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-[#0c2340] font-sans">Dashboard</h2>
+          </div>
+
+          <div class="grid grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4 mb-3 md:mb-3.5 flex-shrink-0">
+            <!-- Purchase -->
+            <div class="bg-white rounded-xl border border-slate-200/90 p-3 md:p-3.5 flex items-center gap-3.5 shadow-xs">
+              <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+              </div>
+              <div class="min-w-0"><div class="text-xs font-semibold text-slate-500 font-sans truncate">Purchase</div><div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] font-sans">₹ 12,58,000</div></div>
+            </div>
+
+            <!-- Sales -->
+            <div class="bg-white rounded-xl border border-slate-200/90 p-3 md:p-3.5 flex items-center gap-3.5 shadow-xs">
+              <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path><polygon points="12 7 13.5 10 16.5 10 14 12 15 15 12 13 9 15 10 12 7.5 10 10.5 10" fill="currentColor" stroke="none"></polygon></svg>
+              </div>
+              <div class="min-w-0"><div class="text-xs font-semibold text-slate-500 font-sans truncate">Sales</div><div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] font-sans">₹ 18,74,500</div></div>
+            </div>
+
+            <!-- Stock Value -->
+            <div class="bg-white rounded-xl border border-slate-200/90 p-3 md:p-3.5 flex items-center gap-3.5 shadow-xs">
+              <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-500 flex-shrink-0">
+                <svg class="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l-7 4v5l7 4 7-4V6l-7-4zm0 2.24L16.8 7 12 9.76 7.2 7 12 4.24zM6 7.84l5 2.85v4.54l-5-2.86V7.84zm7 7.39V10.7l5-2.85v4.53l-5 2.85z"/></svg>
+              </div>
+              <div class="min-w-0"><div class="text-xs font-semibold text-slate-500 font-sans truncate">Stock Value</div><div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] font-sans">₹ 36,42,300</div></div>
+            </div>
+
+            <!-- Profit -->
+            <div class="bg-white rounded-xl border border-slate-200/90 p-3 md:p-3.5 flex items-center gap-3.5 shadow-xs">
+              <div class="w-10 h-10 md:w-11 md:h-11 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-[#1976d2] flex-shrink-0">
+                <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="4"></line><line x1="12" y1="20" x2="12" y2="10"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+              </div>
+              <div class="min-w-0"><div class="text-xs font-semibold text-slate-500 font-sans truncate">Profit</div><div class="text-base sm:text-lg md:text-xl font-bold text-[#0c2340] font-sans">₹ 4,26,750</div></div>
+            </div>
+          </div>
+
+          <!-- Monthly Sales Bar Chart (Single Page, No Scroll) -->
+          <div class="flex-1 min-h-0 bg-white rounded-xl md:rounded-2xl border border-slate-200/90 shadow-xs p-4 md:p-5 flex flex-col justify-between overflow-hidden">
+            <div class="flex items-center justify-between mb-2 md:mb-3 flex-shrink-0">
+              <h3 class="text-sm md:text-base font-bold text-slate-900 font-sans">Monthly Sales</h3>
+              <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded font-sans">FY 2025 - 26</span>
+            </div>
+            <div class="w-full flex-1 flex flex-col justify-end min-h-0">
+              <div class="h-40 sm:h-44 md:h-52 max-h-[220px] flex items-end justify-between gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 md:px-8 border-b-2 border-slate-200 pb-1">
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹2.4L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 25%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹3.8L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 38%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹5.2L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 52%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹4.6L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 45%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹7.1L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 72%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹6.4L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 64%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹8.3L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 84%;"></div>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1 group h-full justify-end">
+                  <div class="text-[11px] font-bold text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity font-sans">₹9.7L</div>
+                  <div class="w-full max-w-[42px] bg-[#1976d2] rounded-t-md" style="height: 96%;"></div>
+                </div>
+              </div>
+              <div class="flex justify-between gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 md:px-8 mt-2 text-xs font-semibold text-slate-600 font-sans flex-shrink-0">
+                <span class="flex-1 text-center">Apr</span>
+                <span class="flex-1 text-center">May</span>
+                <span class="flex-1 text-center">Jun</span>
+                <span class="flex-1 text-center">Jul</span>
+                <span class="flex-1 text-center">Aug</span>
+                <span class="flex-1 text-center">Sep</span>
+                <span class="flex-1 text-center">Oct</span>
+                <span class="flex-1 text-center">Nov</span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function selectRole(role) {
+      const traderBtn = document.getElementById('btn-role-trader');
+      const agentBtn = document.getElementById('btn-role-agent');
+      document.getElementById('dashRoleContext').innerText = role;
+
+      if (role === 'Trader') {
+        traderBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border-2 border-[#1976d2] bg-[#dbeafe] text-slate-800 transition-all cursor-pointer font-sans";
+        agentBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all cursor-pointer font-sans";
+      } else {
+        agentBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border-2 border-[#1976d2] bg-[#dbeafe] text-slate-800 transition-all cursor-pointer font-sans";
+        traderBtn.className = "w-full flex items-center gap-4 p-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition-all cursor-pointer font-sans";
+      }
+    }
+
+    function toggleFlowFyDropdown() {
+      const menu = document.getElementById('fyOptionsList');
+      const trigger = document.getElementById('flowFyDropdownTrigger');
+      const chevron = document.getElementById('flowFyChevron');
+      const isHidden = menu.classList.contains('hidden');
+
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        trigger.setAttribute('aria-expanded', 'true');
+        chevron.classList.add('rotate-180');
+      } else {
+        closeFlowFyDropdown();
+      }
+    }
+
+    function closeFlowFyDropdown() {
+      const menu = document.getElementById('fyOptionsList');
+      const trigger = document.getElementById('flowFyDropdownTrigger');
+      const chevron = document.getElementById('flowFyChevron');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        trigger.setAttribute('aria-expanded', 'false');
+        chevron.classList.remove('rotate-180');
+      }
+    }
+
+    function selectFy(fy) {
+      document.getElementById('activeFyLabel').innerText = fy;
+      document.getElementById('dashFyContext').innerText = fy;
+      const options = document.querySelectorAll('.flow-fy-opt');
+      options.forEach(opt => {
+        const check = opt.querySelector('.flow-check');
+        if (opt.getAttribute('data-year') === fy) {
+          opt.className = "flow-fy-opt px-4 py-2.5 bg-[#1976d2] text-white font-semibold cursor-pointer shadow-inner flex items-center justify-between transition-colors";
+          if (check) check.classList.remove('hidden');
+        } else {
+          opt.className = "flow-fy-opt px-4 py-2.5 hover:bg-blue-50 text-slate-700 cursor-pointer font-medium flex items-center justify-between transition-colors";
+          if (check) check.classList.add('hidden');
+        }
+      });
+      closeFlowFyDropdown();
+    }
+
+    // Close on outside click
+    document.addEventListener('click', function(event) {
+      const container = document.getElementById('flowFyDropdownContainer');
+      if (container && !container.contains(event.target)) {
+        closeFlowFyDropdown();
+      }
+    });
+
+    function goToFlowStep(stepNumber) {
+      document.querySelectorAll('.flow-step').forEach(step => step.classList.remove('active'));
+      const target = document.getElementById('flow-step-' + stepNumber);
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

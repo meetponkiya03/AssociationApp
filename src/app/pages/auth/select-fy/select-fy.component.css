@@ -1,0 +1,5 @@
+/* Select FY Component Styles */
+:host {
+  display: block;
+}
+

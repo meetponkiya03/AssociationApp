@@ -1,0 +1,223 @@
+<!-- =========================================================================
+     SutraPlus - Import Records from Excel Screen Component
+     Angular Component: ImportExcelComponent
+     Selector: app-import-excel
+     Template: import-excel.component.html
+     Description: Bulk excel file upload, schema guidance banner, preview grid,
+                  and record verification submit action.
+========================================================================= -->
+
+<section class="p-6 md:p-8 w-full max-w-6xl mx-auto font-sans">
+  <!-- Screen Header Title -->
+  <div class="flex items-center gap-3 mb-6">
+    <!-- Green Excel Document Icon -->
+    <div class="w-9 h-9 bg-[#107c41] rounded-md flex items-center justify-center text-white font-bold text-lg shadow-sm flex-shrink-0">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+        <path d="M8.5 17.5l2-3.5-2-3.5h1.8l1.1 2.2 1.1-2.2h1.8l-2 3.5 2 3.5h-1.8l-1.1-2.2-1.1 2.2H8.5z"/>
+      </svg>
+    </div>
+    <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0c2340]">
+      Import Records from Excel
+    </h2>
+  </div>
+
+  <!-- Main Card Container -->
+  <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 md:p-7">
+    <!-- Top File Picker Row -->
+    <div class="flex flex-wrap items-center gap-3 mb-5">
+      <label for="excelFileInput" class="text-sm font-semibold text-slate-800 flex items-center gap-1">
+        Select Excel File <span class="text-red-500 font-bold">*</span>
+      </label>
+
+      <!-- File Name Input Field -->
+      <!-- Angular: [(ngModel)]="selectedFileName" -->
+      <div class="flex-1 min-w-[240px] max-w-md">
+        <input 
+          type="text" 
+          id="excelFileInput"
+          value="Trader_Invoices.xlsx" 
+          readonly
+          class="w-full bg-white border border-slate-300 rounded-lg px-3.5 py-1.5 text-sm text-slate-800 shadow-xs focus:outline-none focus:ring-1 focus:ring-[#1976d2]"
+        />
+      </div>
+
+      <!-- Hidden native file input for Angular binding -->
+      <!-- Angular: <input type="file" #fileInput (change)="onFileSelected($event)" accept=".xlsx, .xls" class="hidden" /> -->
+      <input type="file" id="actualFileInput" class="hidden" accept=".xlsx, .xls" />
+
+      <!-- Browse Button -->
+      <!-- Angular: (click)="fileInput.click()" -->
+      <label 
+        for="actualFileInput"
+        class="cursor-pointer border border-slate-300 bg-white hover:bg-slate-50 active:bg-slate-100 text-slate-700 font-medium text-sm px-4 py-1.5 rounded-lg flex items-center gap-2 shadow-xs transition-colors duration-150"
+      >
+        <!-- Yellow Folder Icon -->
+        <svg class="w-4 h-4 text-amber-500 fill-amber-400" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+        </svg>
+        <span>Browse</span>
+      </label>
+    </div>
+
+    <!-- Excel Column Format Specification Banner -->
+    <div class="bg-[#ebf7ee] border border-[#b7e4c7] rounded-xl p-3.5 mb-6 flex items-center gap-3.5">
+      <!-- Excel Mini Badge -->
+      <div class="w-7 h-7 bg-[#107c41] rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+        </svg>
+      </div>
+
+      <div class="text-xs md:text-sm text-slate-800 leading-snug">
+        <span class="font-bold text-slate-900">Excel Format:</span>
+        <span class="text-slate-700 ml-1">Columns should be in this order:</span>
+        <div class="font-semibold text-slate-900 mt-0.5 tracking-wide">
+          S.No <span class="text-slate-400 font-normal">|</span> 
+          GSTIN <span class="text-slate-400 font-normal">|</span> 
+          Party Name <span class="text-slate-400 font-normal">|</span> 
+          Date <span class="text-slate-400 font-normal">|</span> 
+          Invoice Number <span class="text-slate-400 font-normal">|</span> 
+          No of Bags
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview Records Data Table -->
+    <div class="border border-slate-200 rounded-xl overflow-hidden shadow-xs mb-6">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs md:text-sm">
+          <!-- Table Header -->
+          <thead>
+            <tr class="bg-[#1565c0] text-white">
+              <th scope="col" class="py-2.5 px-3 text-center w-12 border-r border-blue-400/40">
+                <input 
+                  type="checkbox" 
+                  checked
+                  aria-label="Select all rows"
+                  class="w-4 h-4 rounded text-[#1565c0] border-white/60 focus:ring-0 cursor-pointer accent-[#1565c0]"
+                />
+              </th>
+              <th scope="col" class="py-2.5 px-4 text-center font-semibold w-16 border-r border-blue-400/40">
+                S.No
+              </th>
+              <th scope="col" class="py-2.5 px-4 font-semibold border-r border-blue-400/40 min-w-[160px]">
+                GSTIN
+              </th>
+              <th scope="col" class="py-2.5 px-4 font-semibold border-r border-blue-400/40 min-w-[200px]">
+                Party Name
+              </th>
+              <th scope="col" class="py-2.5 px-4 text-center font-semibold border-r border-blue-400/40 min-w-[110px]">
+                Date
+              </th>
+              <th scope="col" class="py-2.5 px-4 text-center font-semibold border-r border-blue-400/40 min-w-[130px]">
+                Invoice Number
+              </th>
+              <th scope="col" class="py-2.5 px-4 text-right font-semibold min-w-[100px]">
+                No of Bags
+              </th>
+            </tr>
+          </thead>
+
+          <!-- Table Body -->
+          <!-- Angular: <tbody *ngIf="importedRecords?.length"> <tr *ngFor="let row of importedRecords; let i = index"> -->
+          <tbody class="divide-y divide-slate-200 bg-white">
+            <!-- Row 1 -->
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="py-2 px-3 text-center border-r border-slate-200">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#1565c0] cursor-pointer accent-[#1565c0]" />
+              </td>
+              <td class="py-2 px-4 text-center text-slate-800 font-medium border-r border-slate-200">1</td>
+              <td class="py-2 px-4 text-slate-800 font-mono text-xs border-r border-slate-200">29ABCDE1234F1Z5</td>
+              <td class="py-2 px-4 text-slate-800 font-medium border-r border-slate-200">M/s. ABC Traders</td>
+              <td class="py-2 px-4 text-center text-slate-700 border-r border-slate-200">11-11-2026</td>
+              <td class="py-2 px-4 text-center text-slate-700 font-mono text-xs border-r border-slate-200">INV-1001</td>
+              <td class="py-2 px-4 text-right text-slate-800 font-semibold">50</td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="py-2 px-3 text-center border-r border-slate-200">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#1565c0] cursor-pointer accent-[#1565c0]" />
+              </td>
+              <td class="py-2 px-4 text-center text-slate-800 font-medium border-r border-slate-200">2</td>
+              <td class="py-2 px-4 text-slate-800 font-mono text-xs border-r border-slate-200">29FGHIJ5678K1Z9</td>
+              <td class="py-2 px-4 text-slate-800 font-medium border-r border-slate-200">M/s. Royal Distributors</td>
+              <td class="py-2 px-4 text-center text-slate-700 border-r border-slate-200">11-11-2026</td>
+              <td class="py-2 px-4 text-center text-slate-700 font-mono text-xs border-r border-slate-200">INV-1002</td>
+              <td class="py-2 px-4 text-right text-slate-800 font-semibold">75</td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="py-2 px-3 text-center border-r border-slate-200">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#1565c0] cursor-pointer accent-[#1565c0]" />
+              </td>
+              <td class="py-2 px-4 text-center text-slate-800 font-medium border-r border-slate-200">3</td>
+              <td class="py-2 px-4 text-slate-800 font-mono text-xs border-r border-slate-200">29KLMNO9012P1Z3</td>
+              <td class="py-2 px-4 text-slate-800 font-medium border-r border-slate-200">M/s. Metro Traders</td>
+              <td class="py-2 px-4 text-center text-slate-700 border-r border-slate-200">10-11-2026</td>
+              <td class="py-2 px-4 text-center text-slate-700 font-mono text-xs border-r border-slate-200">INV-1003</td>
+              <td class="py-2 px-4 text-right text-slate-800 font-semibold">120</td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="py-2 px-3 text-center border-r border-slate-200">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#1565c0] cursor-pointer accent-[#1565c0]" />
+              </td>
+              <td class="py-2 px-4 text-center text-slate-800 font-medium border-r border-slate-200">4</td>
+              <td class="py-2 px-4 text-slate-800 font-mono text-xs border-r border-slate-200">29QRSTU3456V1Z7</td>
+              <td class="py-2 px-4 text-slate-800 font-medium border-r border-slate-200">M/s. Global Supplies</td>
+              <td class="py-2 px-4 text-center text-slate-700 border-r border-slate-200">10-11-2026</td>
+              <td class="py-2 px-4 text-center text-slate-700 font-mono text-xs border-r border-slate-200">INV-1004</td>
+              <td class="py-2 px-4 text-right text-slate-800 font-semibold">60</td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr class="hover:bg-blue-50/40 transition-colors">
+              <td class="py-2 px-3 text-center border-r border-slate-200">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#1565c0] cursor-pointer accent-[#1565c0]" />
+              </td>
+              <td class="py-2 px-4 text-center text-slate-800 font-medium border-r border-slate-200">5</td>
+              <td class="py-2 px-4 text-slate-800 font-mono text-xs border-r border-slate-200">29VWXYZ7890A1Z2</td>
+              <td class="py-2 px-4 text-slate-800 font-medium border-r border-slate-200">M/s. City Traders</td>
+              <td class="py-2 px-4 text-center text-slate-700 border-r border-slate-200">09-11-2026</td>
+              <td class="py-2 px-4 text-center text-slate-700 font-mono text-xs border-r border-slate-200">INV-1005</td>
+              <td class="py-2 px-4 text-right text-slate-800 font-semibold">90</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Summary Metrics & Submit Action Footer -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+      <!-- Summary Counts -->
+      <div class="flex items-center gap-5 text-sm md:text-base font-semibold text-slate-800">
+        <div>
+          Total Records : 
+          <span class="text-[#1565c0] font-bold text-lg md:text-xl ml-1">5</span>
+        </div>
+        <div class="text-slate-300 text-lg">|</div>
+        <div>
+          Total No of Bags : 
+          <span class="text-[#1565c0] font-bold text-lg md:text-xl ml-1">395</span>
+        </div>
+      </div>
+
+      <!-- Submit Records Button -->
+      <!-- Angular: (click)="onSubmitImportedRecords()" [disabled]="isSubmitting" -->
+      <button 
+        type="button"
+        class="w-full sm:w-auto bg-[#2e7d32] hover:bg-[#256828] active:bg-[#1b4d1e] text-white font-semibold text-sm md:text-base px-8 py-2 rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all duration-150"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Submit</span>
+      </button>
+    </div>
+  </div>
+</section>
+
